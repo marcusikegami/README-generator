@@ -1,0 +1,26 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "Generates a professional-quality readme using node.js and command line to prompt the user for information to fill text fields to generate a README.md file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcusikegami/README-generator.git"
+  },
+  "keywords": [
+    "readme",
+    "node.js"
+  ],
+  "author": "Marcus Ikegami",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcusikegami/README-generator/issues"
+  },
+  "homepage": "https://github.com/marcusikegami/README-generator#readme",
+  "dependencies": {
+    "inquirer": "^6.5.2"
+  }
+}
