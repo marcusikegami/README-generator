@@ -2,7 +2,7 @@ const data = require('../index');
 const fs = require('fs');
 
 function renderLicenseBadge(data) {
-if(data.license, data.repo) {
+if(data.license && data.repo) {
   data.licenseBadge = `[![License](https://img.shields.io/github/license/${data.github}/${data.repo})](LICENSE.txt)`;
   data.licenseText = `## License
 
@@ -14,7 +14,7 @@ if(data.license, data.repo) {
   data.licenseBadge = "";
   data.licenseText = "";
 }
-if(!data.repo, data.license) {
+if(!data.repo && data.license) {
   data.licenseBadge = "";
   data.licenseText = `## License
 

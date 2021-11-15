@@ -1,6 +1,6 @@
 
 # README.md Generator (Node.js)
-
+[![License](https://img.shields.io/github/license/marcusikegami/README-generator)](LICENSE.txt)
 
 ## Table of Contents
 * [Description](#description)
