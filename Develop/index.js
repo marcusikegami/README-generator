@@ -118,7 +118,6 @@ const promptUser = () => {
 promptUser()
 .then(data => renderLicenseBadge(data))
 .then(data => renderLicenseFile(data))
-// .then(data => writeLicenseFile(data))
 .then(data => generateMarkdown(data))
 .then(data => writeToFile(data));
 

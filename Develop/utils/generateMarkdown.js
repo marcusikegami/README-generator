@@ -14,6 +14,15 @@ if(data.license, data.repo) {
   data.licenseBadge = "";
   data.licenseText = "";
 }
+if(!data.repo, data.license) {
+  data.licenseBadge = "";
+  data.licenseText = `## License
+
+  Copyright (c) ${new Date().getFullYear()} by ${data.name}
+  
+  Licensed under the [${data.license}](LICENSE.txt) license.
+  `
+}
 return data;
 };
 
@@ -89,33 +98,8 @@ if(data.license === 'None'){
 
 };
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function writeLicenseFile(data) {
-  if(data.license === 'None') {
-    return data;
-  } else {
-    const fileContent = data.licenseFile;
-  return new Promise((resolve, reject) => {
-    
-    fs.writeFile('./LICENSE.txt', fileContent, err => {
-        if(err){
-        reject(err);
-        return;
-        } 
-        resolve({
-            ok: true,
-            message: 'README.md created!'
-            
-        });
-    });
-  });
-};
-};
-
-// TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `
+  data.markdown = `
 # ${data.title}
 ${data.licenseBadge}
 
@@ -147,15 +131,15 @@ ${data.questions}
 
 ${data.licenseText}
 `;
-
+return data;
 }
 
 
-// TODO: Create a function to write README file
-function writeToFile(fileContent) {
+function writeToFile(data) {
+  const markdown = data.markdown;
   return new Promise((resolve, reject) => {
-      console.log(fileContent);
-      fs.writeFile('./README.md', fileContent, err => {
+      
+      fs.writeFile('./README.md', markdown, err => {
           if(err){
           reject(err);
           return;
@@ -185,8 +169,7 @@ function writeToFile(fileContent) {
         });
       });
     };
-
   });
 };
 
-module.exports = {generateMarkdown, writeToFile,  renderLicenseBadge, renderLicenseFile, writeLicenseFile };
+module.exports = {generateMarkdown, writeToFile,  renderLicenseBadge, renderLicenseFile };
